@@ -22,12 +22,12 @@ public class EnterTimeTrack {
 		try
 		{
 		wait.until(ExpectedConditions.visibilityOf(logoutLink));
-		Reporter.log("Home Page is Displayed");
+		Reporter.log("Home Page is Displayed",true);
 		return true;
 		}
 		catch(Exception e)
 		{
-			Reporter.log("Home Page isNOT  Displayed");
+			Reporter.log("Home Page isNOT  Displayed",true);
 			return false;
 		}
 	}
