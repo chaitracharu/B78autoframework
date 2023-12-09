@@ -13,7 +13,7 @@ import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 public class BaseTest {
-	public final String DEFAULT_URL="http://www.fb.com";
+	public final String DEFAULT_URL="https://demo.actitime.com";
 	public final String DEFAULT_BROWSER="edge";
 	public final String XL_PATH="./data/input.xlsx";
 	public final String DEFAULT_ITO="10";
