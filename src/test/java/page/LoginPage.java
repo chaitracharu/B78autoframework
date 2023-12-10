@@ -4,6 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Reporter;
 
 public class LoginPage {
 	//Declaration
@@ -15,6 +18,9 @@ public class LoginPage {
 	
 	@FindBy(xpath="//div[text()='Login ']")
 	private WebElement loginBTN;
+	
+	@FindBy(xpath="//span[contains(text(),'Invalid')]")
+	private WebElement errMSG;
 	
 	//Initialization
 	public LoginPage(WebDriver driver)
@@ -38,9 +44,21 @@ public class LoginPage {
 		loginBTN.click();
 	}
 	
+	public boolean verifyErrMsgIsDisplayed(WebDriverWait wait)
+	{
+		try
+		{
+		wait.until(ExpectedConditions.visibilityOf(errMSG));
+		Reporter.log("Err Msg is Displayed");
+		return true;
+		}
+		catch(Exception e)
+		{
+			Reporter.log("Err Msg is NOT Displayed");
+			return false;
+		}
+	
+     }
 	
 	
-	
-	
-
-}
+  }
